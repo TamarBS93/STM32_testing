@@ -10,9 +10,9 @@
 #include <stdint.h>
 
 
-#define SERVER_IP "127.0.0.1"
+// #define SERVER_IP "127.0.0.1"
 #define SERVER_PORT 8080
-#define CLIENT_IP "192.168.1.168"
+#define CLIENT_IP "192.168.100.2"
 #define CLIENT_PORT 5005
 
 #define MAX_BIT_PATTERN_LENGTH 256
