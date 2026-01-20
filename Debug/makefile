@@ -76,8 +76,8 @@ all: main-build
 main-build: Final_ARM_proj.elf secondary-outputs
 
 # Tool invocations
-Final_ARM_proj.elf Final_ARM_proj.map: $(OBJS) $(USER_OBJS) D:\Tamar\ARM\projects\Final_Project\LWIP_v2\STM32F756ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Final_ARM_proj.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Tamar\ARM\projects\Final_Project\LWIP_v2\STM32F756ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final_ARM_proj.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Final_ARM_proj.elf Final_ARM_proj.map: $(OBJS) $(USER_OBJS) D:\worspace\Final_ARM_proj\STM32F756ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Final_ARM_proj.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\worspace\Final_ARM_proj\STM32F756ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final_ARM_proj.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

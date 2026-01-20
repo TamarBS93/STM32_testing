@@ -7,49 +7,49 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         0001ee34  080001d0  080001d0  000011d0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00003470  0801f004  0801f004  00020004  2**2
+  2 .rodata       00003468  0801f004  0801f004  00020004  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08022474  08022474  000241cc  2**0
+  3 .ARM.extab    00000000  0802246c  0802246c  000241cc  2**0
                   CONTENTS, READONLY
-  4 .ARM          00000008  08022474  08022474  00023474  2**2
+  4 .ARM          00000008  0802246c  0802246c  0002346c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  0802247c  0802247c  000241cc  2**0
+  5 .preinit_array 00000000  08022474  08022474  000241cc  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  0802247c  0802247c  0002347c  2**2
+  6 .init_array   00000004  08022474  08022474  00023474  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  08022480  08022480  00023480  2**2
+  7 .fini_array   00000004  08022478  08022478  00023478  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         0000008c  20000000  08022484  00024000  2**2
+  8 .data         0000008c  20000000  0802247c  00024000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .RxDecripSection 000000a0  2000008c  08022510  0002408c  2**2
+  9 .RxDecripSection 000000a0  2000008c  08022508  0002408c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
- 10 .TxDecripSection 000000a0  2000012c  080225b0  0002412c  2**2
+ 10 .TxDecripSection 000000a0  2000012c  080225a8  0002412c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
- 11 .bss          00027c90  200001cc  08022650  000241cc  2**2
+ 11 .bss          00027c90  200001cc  08022648  000241cc  2**2
                   ALLOC
- 12 ._user_heap_stack 00000604  20027e5c  08022650  00024e5c  2**0
+ 12 ._user_heap_stack 00000604  20027e5c  08022648  00024e5c  2**0
                   ALLOC
  13 .ARM.attributes 00000030  00000000  00000000  000241cc  2**0
                   CONTENTS, READONLY
- 14 .debug_info   00044192  00000000  00000000  000241fc  2**0
+ 14 .debug_info   00044194  00000000  00000000  000241fc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_abbrev 0000a00a  00000000  00000000  0006838e  2**0
+ 15 .debug_abbrev 0000a01b  00000000  00000000  00068390  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_aranges 000031f0  00000000  00000000  00072398  2**3
+ 16 .debug_aranges 000031f0  00000000  00000000  000723b0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_rnglists 00002759  00000000  00000000  00075588  2**0
+ 17 .debug_rnglists 00002759  00000000  00000000  000755a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_macro  00017371  00000000  00000000  00077ce1  2**0
+ 18 .debug_macro  00017371  00000000  00000000  00077cf9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   0004ee26  00000000  00000000  0008f052  2**0
+ 19 .debug_line   0004edc1  00000000  00000000  0008f06a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    001278ed  00000000  00000000  000dde78  2**0
+ 20 .debug_str    001278dc  00000000  00000000  000dde2b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .comment      00000043  00000000  00000000  00205765  2**0
+ 21 .comment      00000043  00000000  00000000  00205707  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  0000d90c  00000000  00000000  002057a8  2**2
+ 22 .debug_frame  0000d90c  00000000  00000000  0020574c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_line_str 0000005a  00000000  00000000  002130b4  2**0
+ 23 .debug_line_str 00000049  00000000  00000000  00213058  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -660,36 +660,36 @@ int main(void)
   while (1)
  8000708:	bf00      	nop
  800070a:	e7fd      	b.n	8000708 <main+0x12c>
- 800070c:	080221b8 	.word	0x080221b8
+ 800070c:	080221b0 	.word	0x080221b0
  8000710:	20000db0 	.word	0x20000db0
- 8000714:	080221c8 	.word	0x080221c8
+ 8000714:	080221c0 	.word	0x080221c0
  8000718:	20000db4 	.word	0x20000db4
- 800071c:	080221d8 	.word	0x080221d8
+ 800071c:	080221d0 	.word	0x080221d0
  8000720:	20000db8 	.word	0x20000db8
- 8000724:	080221e8 	.word	0x080221e8
+ 8000724:	080221e0 	.word	0x080221e0
  8000728:	20000dbc 	.word	0x20000dbc
- 800072c:	080221f8 	.word	0x080221f8
+ 800072c:	080221f0 	.word	0x080221f0
  8000730:	20000dc0 	.word	0x20000dc0
- 8000734:	08022208 	.word	0x08022208
+ 8000734:	08022200 	.word	0x08022200
  8000738:	20000dc4 	.word	0x20000dc4
- 800073c:	08022218 	.word	0x08022218
+ 800073c:	08022210 	.word	0x08022210
  8000740:	20000dc8 	.word	0x20000dc8
- 8000744:	08022228 	.word	0x08022228
+ 8000744:	08022220 	.word	0x08022220
  8000748:	20000dcc 	.word	0x20000dcc
- 800074c:	08022238 	.word	0x08022238
+ 800074c:	08022230 	.word	0x08022230
  8000750:	20000dd0 	.word	0x20000dd0
- 8000754:	080221a0 	.word	0x080221a0
+ 8000754:	08022198 	.word	0x08022198
  8000758:	20000dac 	.word	0x20000dac
- 800075c:	08022110 	.word	0x08022110
+ 800075c:	08022108 	.word	0x08022108
  8000760:	08001241 	.word	0x08001241
  8000764:	20000d9c 	.word	0x20000d9c
- 8000768:	08022134 	.word	0x08022134
+ 8000768:	0802212c 	.word	0x0802212c
  800076c:	08001255 	.word	0x08001255
  8000770:	20000da0 	.word	0x20000da0
- 8000774:	08022158 	.word	0x08022158
+ 8000774:	08022150 	.word	0x08022150
  8000778:	08001299 	.word	0x08001299
  800077c:	20000da4 	.word	0x20000da4
- 8000780:	0802217c 	.word	0x0802217c
+ 8000780:	08022174 	.word	0x08022174
  8000784:	080012ad 	.word	0x080012ad
  8000788:	20000da8 	.word	0x20000da8
 
@@ -2311,7 +2311,7 @@ void udp_receive_init(void)
  8001076:	bf00      	nop
  8001078:	20000dd4 	.word	0x20000dd4
  800107c:	0801f0cc 	.word	0x0801f0cc
- 8001080:	08022384 	.word	0x08022384
+ 8001080:	0802237c 	.word	0x0802237c
  8001084:	0801f0e8 	.word	0x0801f0e8
  8001088:	08001091 	.word	0x08001091
  800108c:	0801f0fc 	.word	0x0801f0fc
@@ -6080,7 +6080,7 @@ Reset_Handler:    ldr   sp, =_estack      /* set stack pointer */
   ldr r1, =_edata
  800259c:	2000008c 	.word	0x2000008c
   ldr r2, =_sidata
- 80025a0:	08022484 	.word	0x08022484
+ 80025a0:	0802247c 	.word	0x0802247c
   ldr r2, =_sbss
  80025a4:	200001cc 	.word	0x200001cc
   ldr r4, =_ebss
@@ -11684,7 +11684,7 @@ static uint32_t DMA_CalcBaseAndBitshift(DMA_HandleTypeDef *hdma)
  8004320:	4770      	bx	lr
  8004322:	bf00      	nop
  8004324:	aaaaaaab 	.word	0xaaaaaaab
- 8004328:	08022260 	.word	0x08022260
+ 8004328:	08022258 	.word	0x08022258
  800432c:	fffffc00 	.word	0xfffffc00
 
 08004330 <DMA_CheckFifoParam>:
@@ -24617,7 +24617,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(const RCC_ClkInitTypeDef  *RCC_ClkInitStru
  8008af6:	bf00      	nop
  8008af8:	40023c00 	.word	0x40023c00
  8008afc:	40023800 	.word	0x40023800
- 8008b00:	08022248 	.word	0x08022248
+ 8008b00:	08022240 	.word	0x08022240
  8008b04:	20000000 	.word	0x20000000
  8008b08:	20000004 	.word	0x20000004
 
@@ -24919,7 +24919,7 @@ uint32_t HAL_RCC_GetPCLK1Freq(void)
  8008d4c:	4618      	mov	r0, r3
  8008d4e:	bd80      	pop	{r7, pc}
  8008d50:	40023800 	.word	0x40023800
- 8008d54:	08022258 	.word	0x08022258
+ 8008d54:	08022250 	.word	0x08022250
 
 08008d58 <HAL_RCC_GetPCLK2Freq>:
   * @note   Each time PCLK2 changes, this function must be called to update the
@@ -24945,7 +24945,7 @@ uint32_t HAL_RCC_GetPCLK2Freq(void)
  8008d74:	4618      	mov	r0, r3
  8008d76:	bd80      	pop	{r7, pc}
  8008d78:	40023800 	.word	0x40023800
- 8008d7c:	08022258 	.word	0x08022258
+ 8008d7c:	08022250 	.word	0x08022250
 
 08008d80 <HAL_RCC_GetClockConfig>:
   * will be configured.
@@ -38904,7 +38904,7 @@ static void low_level_init(struct netif *netif)
  800deb8:	2000012c 	.word	0x2000012c
  800debc:	2000008c 	.word	0x2000008c
  800dec0:	2000a268 	.word	0x2000a268
- 800dec4:	08022268 	.word	0x08022268
+ 800dec4:	08022260 	.word	0x08022260
  800dec8:	2000a1b0 	.word	0x2000a1b0
  800decc:	2000a1b4 	.word	0x2000a1b4
  800ded0:	0801f1a4 	.word	0x0801f1a4
@@ -39347,7 +39347,7 @@ void pbuf_free_custom(struct pbuf *p)
  800e14e:	3710      	adds	r7, #16
  800e150:	46bd      	mov	sp, r7
  800e152:	bd80      	pop	{r7, pc}
- 800e154:	08022268 	.word	0x08022268
+ 800e154:	08022260 	.word	0x08022260
  800e158:	2000a1ac 	.word	0x2000a1ac
  800e15c:	2000a1b0 	.word	0x2000a1b0
 
@@ -39979,7 +39979,7 @@ void HAL_ETH_RxAllocateCallback(uint8_t **buff)
  800e506:	3710      	adds	r7, #16
  800e508:	46bd      	mov	sp, r7
  800e50a:	bd80      	pop	{r7, pc}
- 800e50c:	08022268 	.word	0x08022268
+ 800e50c:	08022260 	.word	0x08022260
  800e510:	0800e121 	.word	0x0800e121
  800e514:	2000a1ac 	.word	0x2000a1ac
 
@@ -54393,7 +54393,7 @@ memp_init(void)
  80133a6:	3708      	adds	r7, #8
  80133a8:	46bd      	mov	sp, r7
  80133aa:	bd80      	pop	{r7, pc}
- 80133ac:	08022310 	.word	0x08022310
+ 80133ac:	08022308 	.word	0x08022308
 
 080133b0 <do_memp_malloc_pool>:
 #if !MEMP_OVERFLOW_CHECK
@@ -54582,7 +54582,7 @@ memp_malloc_fn(memp_t type, const char *file, const int line)
  8013494:	0801f570 	.word	0x0801f570
  8013498:	0801f600 	.word	0x0801f600
  801349c:	0801f5c4 	.word	0x0801f5c4
- 80134a0:	08022310 	.word	0x08022310
+ 80134a0:	08022308 	.word	0x08022308
 
 080134a4 <do_memp_free_pool>:
 
@@ -54757,7 +54757,7 @@ memp_free(memp_t type, void *mem)
  8013588:	0801f570 	.word	0x0801f570
  801358c:	0801f640 	.word	0x0801f640
  8013590:	0801f5c4 	.word	0x0801f5c4
- 8013594:	08022310 	.word	0x08022310
+ 8013594:	08022308 	.word	0x08022308
 
 08013598 <netif_init>:
 }
@@ -55051,7 +55051,7 @@ netif_add(struct netif *netif,
  8013720:	0801f6f0 	.word	0x0801f6f0
  8013724:	0801f6ac 	.word	0x0801f6ac
  8013728:	0801f70c 	.word	0x0801f70c
- 801372c:	08022384 	.word	0x08022384
+ 801372c:	0802237c 	.word	0x0802237c
  8013730:	08013b53 	.word	0x08013b53
  8013734:	200277ac 	.word	0x200277ac
  8013738:	200277a4 	.word	0x200277a4
@@ -55426,7 +55426,7 @@ netif_set_addr(struct netif *netif, const ip4_addr_t *ipaddr, const ip4_addr_t *
  8013902:	46bd      	mov	sp, r7
  8013904:	bd80      	pop	{r7, pc}
  8013906:	bf00      	nop
- 8013908:	08022384 	.word	0x08022384
+ 8013908:	0802237c 	.word	0x0802237c
 
 0801390c <netif_set_default>:
  *
@@ -58206,7 +58206,7 @@ tcp_listen_closed(struct tcp_pcb *pcb)
  8014958:	0801fe3c 	.word	0x0801fe3c
  801495c:	0801fdd0 	.word	0x0801fdd0
  8014960:	0801fe48 	.word	0x0801fe48
- 8014964:	0802235c 	.word	0x0802235c
+ 8014964:	08022354 	.word	0x08022354
 
 08014968 <tcp_close_shutdown>:
  * @return ERR_OK if connection has been closed
@@ -59482,8 +59482,8 @@ tcp_slowtmr(void)
  80151c0:	08020128 	.word	0x08020128
  80151c4:	08020158 	.word	0x08020158
  80151c8:	0802018c 	.word	0x0802018c
- 80151cc:	08022354 	.word	0x08022354
- 80151d0:	08022344 	.word	0x08022344
+ 80151cc:	0802234c 	.word	0x0802234c
+ 80151d0:	0802233c 	.word	0x0802233c
  80151d4:	f647 72ff 	movw	r2, #32767	@ 0x7fff
  80151d8:	6afb      	ldr	r3, [r7, #44]	@ 0x2c
  80151da:	f8a3 2040 	strh.w	r2, [r3, #64]	@ 0x40
@@ -71198,7 +71198,7 @@ void sys_timeouts_init(void)
  8019c46:	46bd      	mov	sp, r7
  8019c48:	bd80      	pop	{r7, pc}
  8019c4a:	bf00      	nop
- 8019c4c:	0802236c 	.word	0x0802236c
+ 8019c4c:	08022364 	.word	0x08022364
  8019c50:	08019bad 	.word	0x08019bad
 
 08019c54 <sys_timeout>:
@@ -72845,7 +72845,7 @@ udp_bind(struct udp_pcb *pcb, const ip_addr_t *ipaddr, u16_t port)
  801a56a:	3718      	adds	r7, #24
  801a56c:	46bd      	mov	sp, r7
  801a56e:	bd80      	pop	{r7, pc}
- 801a570:	08022384 	.word	0x08022384
+ 801a570:	0802237c 	.word	0x0802237c
  801a574:	08021278 	.word	0x08021278
  801a578:	08021540 	.word	0x08021540
  801a57c:	080212cc 	.word	0x080212cc
@@ -74704,7 +74704,7 @@ etharp_output(struct netif *netif, struct pbuf *q, const ip4_addr_t *ipaddr)
  801b0d8:	08021654 	.word	0x08021654
  801b0dc:	0802177c 	.word	0x0802177c
  801b0e0:	0802171c 	.word	0x0802171c
- 801b0e4:	08022388 	.word	0x08022388
+ 801b0e4:	08022380 	.word	0x08022380
  801b0e8:	20027900 	.word	0x20027900
  801b0ec:	20027810 	.word	0x20027810
 
@@ -75331,7 +75331,7 @@ etharp_request_dst(struct netif *netif, const ip4_addr_t *ipaddr, const struct e
  801b4be:	46bd      	mov	sp, r7
  801b4c0:	bd80      	pop	{r7, pc}
  801b4c2:	bf00      	nop
- 801b4c4:	08022390 	.word	0x08022390
+ 801b4c4:	08022388 	.word	0x08022388
 
 0801b4c8 <etharp_request>:
  *         ERR_MEM if the ARP packet couldn't be allocated
@@ -75358,7 +75358,7 @@ etharp_request(struct netif *netif, const ip4_addr_t *ipaddr)
  801b4e2:	46bd      	mov	sp, r7
  801b4e4:	bd80      	pop	{r7, pc}
  801b4e6:	bf00      	nop
- 801b4e8:	08022388 	.word	0x08022388
+ 801b4e8:	08022380 	.word	0x08022380
 
 0801b4ec <icmp_input>:
  * @param p the icmp echo request packet, p->payload pointing to the icmp header
@@ -76949,7 +76949,7 @@ ip4_output_if_src(struct pbuf *p, const ip4_addr_t *src, const ip4_addr_t *dest,
  801bd24:	0802198c 	.word	0x0802198c
  801bd28:	080219b4 	.word	0x080219b4
  801bd2c:	20027902 	.word	0x20027902
- 801bd30:	08022384 	.word	0x08022384
+ 801bd30:	0802237c 	.word	0x0802237c
 
 0801bd34 <ip4_addr_isbroadcast_u32>:
  * @param netif the network interface against which the address is checked
@@ -79373,7 +79373,7 @@ free_and_return:
  801cb46:	46bd      	mov	sp, r7
  801cb48:	bd80      	pop	{r7, pc}
  801cb4a:	bf00      	nop
- 801cb4c:	08022388 	.word	0x08022388
+ 801cb4c:	08022380 	.word	0x08022380
 
 0801cb50 <ethernet_output>:
  * @return ERR_OK if the packet was sent, any other err_t on failure
@@ -81356,14 +81356,14 @@ Result spi_testing(test_command_t* command)
  801d73a:	4619      	mov	r1, r3
  801d73c:	482a      	ldr	r0, [pc, #168]	@ (801d7e8 <spi_testing+0x328>)
  801d73e:	f000 fc91 	bl	801e064 <iprintf>
-                printf("Sent: %.*s\n\r", command->bit_pattern_length, tx_buffer);
+                printf("Sent: %.*s\n", command->bit_pattern_length, tx_buffer);
  801d742:	687b      	ldr	r3, [r7, #4]
  801d744:	799b      	ldrb	r3, [r3, #6]
  801d746:	4a15      	ldr	r2, [pc, #84]	@ (801d79c <spi_testing+0x2dc>)
  801d748:	4619      	mov	r1, r3
  801d74a:	4828      	ldr	r0, [pc, #160]	@ (801d7ec <spi_testing+0x32c>)
  801d74c:	f000 fc8a 	bl	801e064 <iprintf>
-                printf("Recv: %.*s\n\r", command->bit_pattern_length, rx_buffer);
+                printf("Recv: %.*s\n", command->bit_pattern_length, rx_buffer);
  801d750:	687b      	ldr	r3, [r7, #4]
  801d752:	799b      	ldrb	r3, [r3, #6]
  801d754:	4a13      	ldr	r2, [pc, #76]	@ (801d7a4 <spi_testing+0x2e4>)
@@ -81428,8 +81428,8 @@ Result spi_testing(test_command_t* command)
  801d7e4:	08021f60 	.word	0x08021f60
  801d7e8:	08021f8c 	.word	0x08021f8c
  801d7ec:	08021fb8 	.word	0x08021fb8
- 801d7f0:	08021fc8 	.word	0x08021fc8
- 801d7f4:	08021fd8 	.word	0x08021fd8
+ 801d7f0:	08021fc4 	.word	0x08021fc4
+ 801d7f4:	08021fd0 	.word	0x08021fd0
 
 0801d7f8 <HAL_SPI_RxCpltCallback>:
 
@@ -82228,17 +82228,17 @@ Result uart_testing(test_command_t* command){
  801dd78:	f507 7746 	add.w	r7, r7, #792	@ 0x318
  801dd7c:	46bd      	mov	sp, r7
  801dd7e:	bd80      	pop	{r7, pc}
- 801dd80:	08022000 	.word	0x08022000
+ 801dd80:	08021ff8 	.word	0x08021ff8
  801dd84:	20000664 	.word	0x20000664
- 801dd88:	08022038 	.word	0x08022038
+ 801dd88:	08022030 	.word	0x08022030
  801dd8c:	200006ec 	.word	0x200006ec
- 801dd90:	08022060 	.word	0x08022060
- 801dd94:	08022088 	.word	0x08022088
+ 801dd90:	08022058 	.word	0x08022058
+ 801dd94:	08022080 	.word	0x08022080
  801dd98:	20000db4 	.word	0x20000db4
- 801dd9c:	080220ac 	.word	0x080220ac
- 801dda0:	080220c8 	.word	0x080220c8
+ 801dd9c:	080220a4 	.word	0x080220a4
+ 801dda0:	080220c0 	.word	0x080220c0
  801dda4:	20000db0 	.word	0x20000db0
- 801dda8:	080220f4 	.word	0x080220f4
+ 801dda8:	080220ec 	.word	0x080220ec
 
 0801ddac <HAL_UART_TxCpltCallback>:
 
@@ -82391,8 +82391,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  801deba:	f020 4000 	bic.w	r0, r0, #2147483648	@ 0x80000000
  801debe:	bd10      	pop	{r4, pc}
  801dec0:	2000003c 	.word	0x2000003c
- 801dec4:	08022396 	.word	0x08022396
- 801dec8:	080223ad 	.word	0x080223ad
+ 801dec4:	0802238e 	.word	0x0802238e
+ 801dec8:	080223a5 	.word	0x080223a5
  801decc:	abcd330e 	.word	0xabcd330e
  801ded0:	e66d1234 	.word	0xe66d1234
  801ded4:	0005deec 	.word	0x0005deec
@@ -83062,10 +83062,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  801e49e:	4798      	blx	r3
  801e4a0:	3601      	adds	r6, #1
  801e4a2:	e7f2      	b.n	801e48a <__libc_init_array+0x1e>
- 801e4a4:	0802247c 	.word	0x0802247c
- 801e4a8:	0802247c 	.word	0x0802247c
- 801e4ac:	0802247c 	.word	0x0802247c
- 801e4b0:	08022480 	.word	0x08022480
+ 801e4a4:	08022474 	.word	0x08022474
+ 801e4a8:	08022474 	.word	0x08022474
+ 801e4ac:	08022474 	.word	0x08022474
+ 801e4b0:	08022478 	.word	0x08022478
 
 0801e4b4 <__retarget_lock_init_recursive>:
  801e4b4:	4770      	bx	lr
@@ -83111,9 +83111,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  801e500:	e7f3      	b.n	801e4ea <__assert_func+0x12>
  801e502:	bf00      	nop
  801e504:	2000003c 	.word	0x2000003c
- 801e508:	08022405 	.word	0x08022405
- 801e50c:	08022412 	.word	0x08022412
- 801e510:	08022440 	.word	0x08022440
+ 801e508:	080223fd 	.word	0x080223fd
+ 801e50c:	0802240a 	.word	0x0802240a
+ 801e510:	08022438 	.word	0x08022438
 
 0801e514 <_free_r>:
  801e514:	b538      	push	{r3, r4, r5, lr}
@@ -83610,11 +83610,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  801e97c:	4630      	mov	r0, r6
  801e97e:	f000 f879 	bl	801ea74 <_printf_i>
  801e982:	e7e4      	b.n	801e94e <_vfiprintf_r+0x1e6>
- 801e984:	08022441 	.word	0x08022441
- 801e988:	0802244b 	.word	0x0802244b
+ 801e984:	08022439 	.word	0x08022439
+ 801e988:	08022443 	.word	0x08022443
  801e98c:	00000000 	.word	0x00000000
  801e990:	0801e743 	.word	0x0801e743
- 801e994:	08022447 	.word	0x08022447
+ 801e994:	0802243f 	.word	0x0802243f
 
 0801e998 <_printf_common>:
  801e998:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -83943,8 +83943,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  801eca0:	2500      	movs	r5, #0
  801eca2:	f104 0619 	add.w	r6, r4, #25
  801eca6:	e7f5      	b.n	801ec94 <_printf_i+0x220>
- 801eca8:	08022452 	.word	0x08022452
- 801ecac:	08022463 	.word	0x08022463
+ 801eca8:	0802244a 	.word	0x0802244a
+ 801ecac:	0802245b 	.word	0x0802245b
 
 0801ecb0 <__sflush_r>:
  801ecb0:	f9b1 200c 	ldrsh.w	r2, [r1, #12]

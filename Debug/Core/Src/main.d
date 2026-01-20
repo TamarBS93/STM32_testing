@@ -95,18 +95,18 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/project_header.h \
+ D:/worspace/Final_ARM_proj/SW/Inc/project_header.h \
  ../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa/inet.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/sockets.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/inet.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/errno.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/errno.h \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/uarts.h \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/project_header.h \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/i2cs.h \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/spis.h \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/adcs.h \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/timer_test.h
+ D:/worspace/Final_ARM_proj/SW/Inc/uarts.h \
+ D:/worspace/Final_ARM_proj/SW/Inc/project_header.h \
+ D:/worspace/Final_ARM_proj/SW/Inc/i2cs.h \
+ D:/worspace/Final_ARM_proj/SW/Inc/spis.h \
+ D:/worspace/Final_ARM_proj/SW/Inc/adcs.h \
+ D:/worspace/Final_ARM_proj/SW/Inc/timer_test.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
@@ -204,15 +204,15 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/project_header.h:
+D:/worspace/Final_ARM_proj/SW/Inc/project_header.h:
 ../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa/inet.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/sockets.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/inet.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/errno.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/errno.h:
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/uarts.h:
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/project_header.h:
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/i2cs.h:
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/spis.h:
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/adcs.h:
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/timer_test.h:
+D:/worspace/Final_ARM_proj/SW/Inc/uarts.h:
+D:/worspace/Final_ARM_proj/SW/Inc/project_header.h:
+D:/worspace/Final_ARM_proj/SW/Inc/i2cs.h:
+D:/worspace/Final_ARM_proj/SW/Inc/spis.h:
+D:/worspace/Final_ARM_proj/SW/Inc/adcs.h:
+D:/worspace/Final_ARM_proj/SW/Inc/timer_test.h:

@@ -1,5 +1,4 @@
-SW/Src/adcs.o: ../SW/Src/adcs.c \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/adcs.h \
+SW/Src/adcs.o: ../SW/Src/adcs.c D:/worspace/Final_ARM_proj/SW/Inc/adcs.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
@@ -56,7 +55,7 @@ SW/Src/adcs.o: ../SW/Src/adcs.c \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h \
- D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/project_header.h \
+ D:/worspace/Final_ARM_proj/SW/Inc/project_header.h \
  ../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa/inet.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/sockets.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/opt.h \
@@ -82,7 +81,7 @@ SW/Src/adcs.o: ../SW/Src/adcs.c \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/inet.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/errno.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/errno.h
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/adcs.h:
+D:/worspace/Final_ARM_proj/SW/Inc/adcs.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
@@ -139,7 +138,7 @@ D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/adcs.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h:
-D:/Tamar/ARM/projects/Final_Project/LWIP_v2/SW/Inc/project_header.h:
+D:/worspace/Final_ARM_proj/SW/Inc/project_header.h:
 ../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa/inet.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/sockets.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/opt.h:
