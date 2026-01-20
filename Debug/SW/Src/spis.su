@@ -1,11 +1,8 @@
 ../Drivers/CMSIS/Include/core_cm7.h:2464:22:SCB_InvalidateDCache_by_Addr	32	static,ignoring_inline_asm
 ../Drivers/CMSIS/Include/core_cm7.h:2491:22:SCB_CleanDCache_by_Addr	32	static,ignoring_inline_asm
-../SW/Src/spis.c:34:26:safe_start_receive_dma	32	static
-../SW/Src/spis.c:50:26:safe_start_transmit_dma	32	static
-../SW/Src/spis.c:66:26:safe_start_transmitreceive_dma	32	static
-../SW/Src/spis.c:85:8:spi_testing	32	static
-../SW/Src/spis.c:227:6:HAL_SPI_RxCpltCallback	24	static,ignoring_inline_asm
-../SW/Src/spis.c:248:6:HAL_SPI_TxRxCpltCallback	24	static,ignoring_inline_asm
-../SW/Src/spis.c:273:6:HAL_SPI_ErrorCallback	24	static
-../SW/Src/spis.c:289:6:clear_flags	24	static
-../SW/Src/spis.c:300:6:reset_test	16	static
+../Drivers/CMSIS/Include/core_cm7.h:2518:22:SCB_CleanInvalidateDCache_by_Addr	32	static,ignoring_inline_asm
+../SW/Src/spis.c:113:8:spi_testing	24	static
+../SW/Src/spis.c:184:6:reset_test	16	static
+../SW/Src/spis.c:209:6:HAL_SPI_RxCpltCallback	24	static,ignoring_inline_asm
+../SW/Src/spis.c:227:6:HAL_SPI_TxRxCpltCallback	24	static,ignoring_inline_asm
+../SW/Src/spis.c:244:6:HAL_SPI_ErrorCallback	24	static

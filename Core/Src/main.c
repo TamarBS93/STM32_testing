@@ -251,11 +251,7 @@ int main(void)
   MX_SPI4_Init();
   /* USER CODE BEGIN 2 */
   // SPI Slave start to listen
-//  uint8_t echo_rx_buffer[MAX_BIT_PATTERN_LENGTH] = {0};
-//
-//  if (HAL_SPI_Receive_DMA(SPI_RECEIVER, echo_rx_buffer, MAX_BIT_PATTERN_LENGTH) != HAL_OK) {
-//      printf("Failed to arm SPI slave RX DMA at startup\n\r");
-//  }
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -635,7 +631,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
@@ -644,7 +640,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi1.Init.CRCPolynomial = 7;
   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
   if (HAL_SPI_Init(&hspi1) != HAL_OK)
   {
     Error_Handler();
@@ -675,7 +671,7 @@ static void MX_SPI4_Init(void)
   hspi4.Init.Mode = SPI_MODE_SLAVE;
   hspi4.Init.Direction = SPI_DIRECTION_2LINES;
   hspi4.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi4.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi4.Init.CLKPolarity = SPI_POLARITY_HIGH;
   hspi4.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi4.Init.NSS = SPI_NSS_SOFT;
   hspi4.Init.FirstBit = SPI_FIRSTBIT_MSB;
