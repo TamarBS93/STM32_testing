@@ -9,8 +9,7 @@
 #include <errno.h>
 #include <stdint.h>
 
-
-// #define SERVER_IP "127.0.0.1"
+#define SERVER_IP "192.168.100.1" // not in use for server because it binds to INADDR_ANY
 #define SERVER_PORT 8080
 #define CLIENT_IP "192.168.100.2"
 #define CLIENT_PORT 5005

@@ -1,35 +1,13 @@
 /**
- * @file main.c
+ * @file udp_server.c
  * @brief PC-side Testing Program (Server) for STM32F756ZG hardware verification.
  * * This program sends test commands over UDP using a proprietary protocol and logs results.
  * @author Tamar Ben Shushan
  * @date 2026
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <time.h>
-#include <arpa/inet.h>
-#include <sys/time.h>
-#include <sys/stat.h>
-#include <signal.h>
 #include "Project_header.h"
-
-/* Constant Definitions */
-#define COUNT_FILE "calls_count.txt"
-#define LOG_FILE "testing.log"
-
-/* Function Prototypes */
-void handle_sigint(int sig);
-int setup_socket();
-result_pro_t perform_test(test_command_t *test_cmd, struct sockaddr_in *dest_addr, double *duration, struct timeval *sent_time);
-test_command_t test_request_init(int argc, char *argv[]);
-int get_id_num();
-int file_exists(const char *filename);
-void logging(result_pro_t result, struct timeval sent, double duration);
-void print_history();
+#include "udp_server.h"
 
 /* Global variables */
 int sockfd;
@@ -38,6 +16,9 @@ int sockfd;
  * @brief Main entry point for the CLI testing application.
  */
 int main(int argc, char *argv[]) {
+
+    // Setup signal handler for graceful shutdown
+    signal(SIGINT, handle_sigint);
 
     // Check for "Print on Demand" request first
     if (argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--history") == 0)) {
@@ -52,14 +33,13 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    signal(SIGINT, handle_sigint);
-
     // Initialize test command based on CLI args
     test_command_t test_cmd = test_request_init(argc, argv);
     if (test_cmd.peripheral == 0){
         printf("Usage: %s <PERIPHERAL> <ITERATIONS> [PATTERN]\n", argv[0]);
         printf("  Log:  %s --history (or -h)\n", argv[0]);
-    } return 1;
+        return 1;
+    } 
 
     // Configure SERVER Address
     sockfd = setup_socket();
@@ -187,7 +167,6 @@ test_command_t test_request_init(int argc, char *argv[]) {
     memcpy((char*)req.bit_pattern, pattern, req.bit_pattern_length);
     req.bit_pattern[req.bit_pattern_length] = '\0'; // Ensure null termination
 
-
     return req;
 }
 
@@ -258,7 +237,7 @@ void print_history() {
     while (fgets(line, sizeof(line), fp)) {
         printf("%s", line);
     }
-    printf("----------------------------------\n\n");
+    printf("------------------------------------------\n\n");
 
     fclose(fp);
 }

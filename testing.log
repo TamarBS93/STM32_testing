@@ -1,0 +1,5 @@
+Test ID   Sent At                   Result          Duration (s)
+1         2026-01-20 17:58:34       FAILURE         1.005086
+2         2026-01-20 17:58:41       SUCCESS         0.575091
+3         2026-01-20 17:58:51       SUCCESS         0.044565
+4         2026-01-20 18:05:32       SUCCESS         0.043929
