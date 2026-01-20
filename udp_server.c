@@ -29,6 +29,7 @@ test_command_t test_request_init(int argc, char *argv[]);
 int get_id_num();
 int file_exists(const char *filename);
 void logging(result_pro_t result, struct timeval sent, double duration);
+void print_history();
 
 /* Global variables */
 int sockfd;
@@ -37,13 +38,28 @@ int sockfd;
  * @brief Main entry point for the CLI testing application.
  */
 int main(int argc, char *argv[]) {
-    signal(SIGINT, handle_sigint);
+
+    // Check for "Print on Demand" request first
+    if (argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--history") == 0)) {
+        print_history();
+        return 0;
+    }
 
     // Validate CLI arguments
     if (argc < 3 || argc > 4) {
         printf("Usage: %s <PERIPHERAL> <ITERATIONS> [PATTERN]\n", argv[0]);
+        printf("  Log:  %s --history (or -h)\n", argv[0]);
         return 1;
     }
+
+    signal(SIGINT, handle_sigint);
+
+    // Initialize test command based on CLI args
+    test_command_t test_cmd = test_request_init(argc, argv);
+    if (test_cmd.peripheral == 0){
+        printf("Usage: %s <PERIPHERAL> <ITERATIONS> [PATTERN]\n", argv[0]);
+        printf("  Log:  %s --history (or -h)\n", argv[0]);
+    } return 1;
 
     // Configure SERVER Address
     sockfd = setup_socket();
@@ -54,10 +70,6 @@ int main(int argc, char *argv[]) {
     uut_addr.sin_family = AF_INET;
     uut_addr.sin_port = htons(5005); 
     uut_addr.sin_addr.s_addr = inet_addr(CLIENT_IP);
-
-    // Initialize test command based on CLI args
-    test_command_t test_cmd = test_request_init(argc, argv);
-    if (test_cmd.peripheral == 0) return 1;
 
     double test_duration = 0;
     struct timeval sent_time;
@@ -172,8 +184,9 @@ test_command_t test_request_init(int argc, char *argv[]) {
     // Bit pattern handling 
     char *pattern = (argc == 4) ? argv[3] : "This is the testing pattern!";
     req.bit_pattern_length = (uint8_t)strlen(pattern);
+    memcpy((char*)req.bit_pattern, pattern, req.bit_pattern_length);
     req.bit_pattern[req.bit_pattern_length] = '\0'; // Ensure null termination
-    strncpy((char*)req.bit_pattern, pattern, MAX_BIT_PATTERN_LENGTH - 1);
+
 
     return req;
 }
@@ -225,5 +238,27 @@ void logging(result_pro_t result, struct timeval sent, double duration) {
     fprintf(fp, "%-9d %-25s %-15s %f\n", result.test_id, time_str, status, duration);
     printf("Test %d Result: %s (%.4fs)\n", result.test_id, status, duration);
     
+    fclose(fp);
+}
+
+/**
+ * @brief Reads the persistent log file and prints all test records to the console.
+ */
+void print_history() {
+    FILE *fp = fopen(LOG_FILE, "r");
+    if (!fp) {
+        printf("No testing records found.\n");
+        return;
+    }
+
+    char line[256];
+    printf("\n--- UUT Hardware Verification History ---\n");
+    
+    // Read and print each line from the log file
+    while (fgets(line, sizeof(line), fp)) {
+        printf("%s", line);
+    }
+    printf("----------------------------------\n\n");
+
     fclose(fp);
 }
