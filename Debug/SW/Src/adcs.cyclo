@@ -1,0 +1,2 @@
+../SW/Src/adcs.c:13:8:adc_testing	9
+../SW/Src/adcs.c:90:6:HAL_ADC_ConvCpltCallback	2
