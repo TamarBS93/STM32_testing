@@ -56,7 +56,13 @@ int main(int argc, char *argv[]) {
 
     // Execute communication and measure time
     result_pro_t result = perform_test(&test_cmd, &uut_addr, &test_duration, &sent_time);
-
+    // Check for errors
+    if (result.test_result == TEST_ERR) {
+        printf("Error during test execution.\n");
+        close(sockfd);
+        return 1;
+    }
+    
     // Record results to persistent storage
     logging(result, sent_time, test_duration);
 
@@ -159,7 +165,12 @@ test_command_t test_request_init(int argc, char *argv[]) {
         return req;
     }
 
-    req.iterations = (uint8_t)atoi(argv[2]); 
+    req.iterations = (uint8_t)atoi(argv[2]);
+    if (req.iterations <= 0) {
+        printf("Error: Iterations must be a positive integer.\n");
+        req.peripheral = 0; // Invalidate peripheral to signal error
+        return req;
+    }
     req.test_id = get_id_num(); 
     // Bit pattern handling 
     char *pattern = (argc == 4) ? argv[3] : "This is the testing pattern!";
