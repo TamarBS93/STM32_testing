@@ -154,11 +154,6 @@ osSemaphoreId_t TimSemHandle;
 const osSemaphoreAttr_t TimSem_attributes = {
   .name = "TimSem"
 };
-/* Definitions for SpiTx */
-osSemaphoreId_t SpiTxHandle;
-const osSemaphoreAttr_t SpiTx_attributes = {
-  .name = "SpiTx"
-};
 /* Definitions for SpiSlaveRx */
 osSemaphoreId_t SpiSlaveRxHandle;
 const osSemaphoreAttr_t SpiSlaveRx_attributes = {
@@ -283,9 +278,6 @@ int main(void)
 
   /* creation of TimSem */
   TimSemHandle = osSemaphoreNew(1, 0, &TimSem_attributes);
-
-  /* creation of SpiTx */
-  SpiTxHandle = osSemaphoreNew(1, 0, &SpiTx_attributes);
 
   /* creation of SpiSlaveRx */
   SpiSlaveRxHandle = osSemaphoreNew(1, 0, &SpiSlaveRx_attributes);
@@ -975,23 +967,15 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 /**
- * // configCHECK_FOR_STACK_OVERFLOW is set to  2 in FreeRTOSConfig.h
- *
- * @brief Hook function for FreeRTOS stack overflow detection.
- * This function is called by the FreeRTOS kernel if a stack overflow is detected.
- * It's crucial to put the system into a safe state here, as the stack is corrupted.
- *
- * @param xTask Task handle of the task whose stack overflowed.
- * @param pcTaskName Pointer to the name of the task whose stack overflowed.
+ * @brief FreeRTOS Stack Overflow Hook.
+ * @details Mandated by project guidelines for handling "unexpected behavior."
+ * If a task exceeds its allocated stack, this locks execution and toggles the RED LED.
+ * @param xTask Handle of the offending task.
+ * @param pcTaskName Name of the offending task.
  */
 void vApplicationStackOverflowHook(TaskHandle_t xTask, signed char *pcTaskName)
 {
     // A stack overflow has been detected. This is a critical error.
-    // The system is in an unstable state.
-
-    printf("\n\r!!! STACK OVERFLOW DETECTED !!!\n\r");
-    printf("Task: %s\n\r", pcTaskName);
-    printf("Handle: 0x%lX\n\r", (uint32_t)xTask);
 
     // Disable interrupts to prevent further execution and potential damage
     taskDISABLE_INTERRUPTS();
@@ -1003,28 +987,28 @@ void vApplicationStackOverflowHook(TaskHandle_t xTask, signed char *pcTaskName)
     }
 }
 
+/**
+ * @brief Initializes the UDP Protocol Control Block (PCB) for test command reception.
+ */
 void udp_receive_init(void)
 {
     udp_pcb_handle = udp_new();
     if (!udp_pcb_handle) {
-        printf("Failed to create UDP PCB\n\r");
         return;
     }
-
     if (udp_bind(udp_pcb_handle, IP_ADDR_ANY, LOCAL_PORT) != ERR_OK) {
-        printf("UDP bind failed\n\r");
         return;
     }
-
     udp_recv(udp_pcb_handle, udp_receive_callback, NULL);
-    printf("UDP ready, listening on port %d\n\r", LOCAL_PORT);
 }
-/*
- * this function gets a received buffer then:
- * 1. alters it to a test_command_t struct
- * 2. sends it to execution queue.
- *
- * */
+
+/**
+ * @brief LWIP Callback triggered when a UDP packet is received.
+ * @details This function implements the primary proprietary protocol entry point.
+ * 1. Validates packet size.
+ * 2. Allocates memory for the command.
+ * 3. Offloads execution to the performing task via FreeRTOS Queue.
+ */
 void udp_receive_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
     if (p != NULL) {
@@ -1055,7 +1039,6 @@ void udp_receive_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p, const 
             else{
             	result_pro_t response={NULL, TEST_ERR};
             	send_response(response);
-                printf("Failed to allocate memory for test_command_t!\n\r"); // Debug printf
             }
         } else {
         	result_pro_t response={NULL, TEST_ERR};
@@ -1069,6 +1052,11 @@ void udp_receive_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p, const 
     }
 }
 
+/**
+ * @brief Sends the test result back to the Linux Server.
+ * @param result The result structure containing Test-ID and Pass/Fail status.
+ * @return int 0 on success, -1 on failure.
+ */
 int send_response(result_pro_t result)
 {
     // Check if we have a valid sender address
@@ -1099,7 +1087,12 @@ int send_response(result_pro_t result)
     }
 }
 
-
+/**
+ * @brief Hardware-accelerated CRC-32 calculation.
+ * @param data Pointer to the buffer.
+ * @param length Length of data in bytes.
+ * @return uint32_t Computed CRC value.
+ */
 uint32_t calculate_crc(uint8_t *data, size_t length) {
     // HAL_CRC_Calculate expects 32-bit words, so convert length
     uint32_t word_count = (length + 3) / 4; // Round up
@@ -1192,7 +1185,6 @@ void perform_tests(void *argument)
 
 	if (xQueueReceive(testsQHandle, &cmd, 0) != pdPASS)
 	{
-		printf("perform_tests: No test command received\n\r");
 		continue;
 	}
 	result_pro_t response;
@@ -1232,7 +1224,8 @@ void perform_tests(void *argument)
 
 /**
   * @brief  Period elapsed callback in non blocking mode
-  * @note   This function is called  when TIM6 interrupt took place, inside
+  * @note   This function handles both the System Tick (TIM6) and the Timer Hardware Test (TIM7).
+  * This function is called  when an interrupt took place, inside
   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
   * a global variable "uwTick" used as application time base.
   * @param  htim : TIM handle

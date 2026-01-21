@@ -1,9 +1,11 @@
 #ifndef SPIS_H_
 #define SPIS_H_
 
+#include <string.h>
+#include <stdio.h>
 #include <stdint.h>
-#include "cmsis_os.h"
 
+#include "cmsis_os.h"
 #include "FreeRTOS.h"
 #include "semphr.h" // For semaphore-specific functions and types like SemaphoreHandle_t
 

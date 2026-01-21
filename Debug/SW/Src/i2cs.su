@@ -1,4 +1,4 @@
-../SW/Src/i2cs.c:19:8:i2c_testing	800	static
-../SW/Src/i2cs.c:111:6:HAL_I2C_MasterTxCpltCallback	24	static,ignoring_inline_asm
-../SW/Src/i2cs.c:126:6:HAL_I2C_MasterRxCpltCallback	24	static,ignoring_inline_asm
-../SW/Src/i2cs.c:142:6:i2c_reset	16	static
+../SW/Src/i2cs.c:22:8:i2c_testing	800	static
+../SW/Src/i2cs.c:108:6:HAL_I2C_MasterTxCpltCallback	24	static,ignoring_inline_asm
+../SW/Src/i2cs.c:119:6:HAL_I2C_MasterRxCpltCallback	24	static,ignoring_inline_asm
+../SW/Src/i2cs.c:130:6:i2c_reset	16	static

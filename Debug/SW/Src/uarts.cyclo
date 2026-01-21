@@ -1,3 +1,3 @@
-../SW/Src/uarts.c:17:8:uart_testing	12
-../SW/Src/uarts.c:114:6:HAL_UART_TxCpltCallback	2
-../SW/Src/uarts.c:133:6:HAL_UART_RxCpltCallback	4
+../SW/Src/uarts.c:23:8:uart_testing	12
+../SW/Src/uarts.c:106:6:HAL_UART_RxCpltCallback	4
+../SW/Src/uarts.c:127:6:HAL_UART_TxCpltCallback	1
